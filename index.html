@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume: Anmol TYAGI</title>  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      background-color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      padding: 30px;
+    }
+
+    .about-section {
+      display: flex;
+      align-items: stretch;
+      flex-wrap: wrap;
+      flex-direction: row; /* Important: normal left to right */
+    }
+
+    .about-image, .about-table {
+      flex: 1 1 50%;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 5px solid white;
+      border-radius: 10px;
+    }
+
+    .table-container {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    table {
+      width: 100%;
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    thead th {
+      background-color: #6c5ce7;
+      color: white;
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 15px;
+    }
+
+    tbody td {
+      padding: 15px;
+      text-align: center;
+      font-size: 1.05rem;
+      color: #333;
+    }
+
+    tbody tr:hover {
+      background-color: #f1f2f6;
+      transform: scale(1.01);
+      transition: all 0.3s ease;
+    }
+
+    .developer-section {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .developer-image {
+    flex: 1 1 45%;
+    min-width: 280px;
+  }
+
+  .developer-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 4px solid #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .developer-bio {
+    flex: 1 1 50%;
+    background: #f8f9fa;
+    border-left: 5px solid #6c5ce7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Poppins', sans-serif;
+
+    /* Centering content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* vertical center */
+    align-items: center;      /* horizontal center */
+    text-align: center;
+  }
+  .developer-bio p {
+    font-size: clamp(1rem, 2vw, 1.8rem); /* ✨ responsive size */
+    margin: 0 0 12px;
+    color: #2d3436;
+    line-height: 1.4;
+  }
+
+  .highlight {
+    color: #6c5ce7;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .developer-section {
+      flex-direction: column;
+    }
+
+    .developer-bio {
+      border-left: none;
+      border-top: 5px solid #6c5ce7;
+    }
+  }
+  </style>
+</head>
+
+<body>
+
+  <section class="text-center">
+    <div class="container">
+      <h1 class="display-4 mb-4">Meet Anmol TYAGI</h1>
+      <p class="lead mb-5">Born on September 28, 1995</p>
+
+      <div class="about-section">
+        <!-- Left: Image -->
+        <div class="about-image">
+          <img src="./resources/images/self-emoji.png" alt="My Photo">
+        </div>
+        <!-- Right side section -->
+        <div class="developer-bio">
+          <p>Building <span class="highlight">secure, scalable systems</span> with <strong>C++</strong> and grit.</p>
+          <p><span id="experience-years"></span> of crafting <span class="highlight">embedded intelligence</span> and <span class="highlight">modern UIs</span>.</p>
+        </div>
+        </div>
+      
+        <script>
+          const startDate = new Date('2016-08-01');
+          const today = new Date();
+        
+          let diff = today - startDate;
+          let years = diff / (1000 * 60 * 60 * 24 * 365.25); // includes leap years
+          let formatted = `${Math.floor(years)}+ years`;
+        
+          document.getElementById('experience-years').textContent = formatted;
+        </script>      
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Academics -->
+  <div class="about-table">
+    <div class="table-container">
+      <h2 class="text-center mb-4" style="color:#2d3436; font-weight:600;">Academics</h2>
+      <table class="table table-hover align-middle mb-0">
+        <thead>
+          <tr>
+            <th>Degree / Class</th>
+            <th>Institution</th>
+            <th>Location</th>
+            <th>Aggregate / CGPA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>B. Tech Hons. (CSE)</td>
+            <td>I.T.S Engineering College</td>
+            <td>Greater Noida</td>
+            <td>77.74%</td>
+          </tr>
+          <tr>
+            <td>Intermediate</td>
+            <td>S.D Public School</td>
+            <td>Muzaffarnagar, U.P.</td>
+            <td>70%</td>
+          </tr>
+          <tr>
+            <td>AISSC</td>
+            <td>S.D Public School</td>
+            <td>Muzaffarnagar, U.P.</td>
+            <td>8.6 CGPA</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+<!-- Skill Levels -->
+  <!-- Highcharts CDN -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+
+  <!-- Section: Full Width with Skill Chart & Beautiful Skill Text -->
+  <section style="background: #e8edf5; padding: 40px 0; width: 100%;">
+    <div style="width: 100%; padding: 0 40px;">
+      <div style="
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        padding: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+      ">
+
+        <!-- Left: Highcharts Column -->
+        <div id="skill-level-chart" style="flex: 1 1 45%; min-width: 320px; height: 400px;"></div>
+
+        <!-- Right: Skills Text Content -->
+        <div style="flex: 1 1 50%; display: flex; flex-direction: column; justify-content: center;">
+          <h2 style="
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #2d3436;
+          ">Complete Skill Set</h2>
+
+          <div style="
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: #2d3436;
+            line-height: 1.8;
+            padding-left: 5px;
+          ">
+            <div><strong style="color: #6c5ce7;">Programming Languages/Features:</strong> C, C++, STL, OOP, Memory Management</div>
+            <div><strong style="color: #6c5ce7;">Database Management:</strong> SQLite3</div>
+            <div><strong style="color: #6c5ce7;">Scripting Languages:</strong> Python, Shell (Basic)</div>
+            <div><strong style="color: #6c5ce7;">Computer Science Fundamentals:</strong> Data Structures, Algorithms, Build Systems (YOCTO), Multithreading, IPC, Cryptography, TCP/IP stack</div>
+            <div><strong style="color: #6c5ce7;">Frameworks:</strong> Qt C++, Thrift (RPC)</div>
+            <div><strong style="color: #6c5ce7;">SCM Tools:</strong> Perforce, SVN, Git</div>
+            <div><strong style="color: #6c5ce7;">SAST:</strong> Coverity, Blackduck</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highcharts Script -->
+  <script>
+  Highcharts.chart('skill-level-chart', {
+    chart: {
+      type: 'column',
+      backgroundColor: '#f8f9fa',
+      borderRadius: 10
+    },
+    title: { text: null },
+    xAxis: {
+      categories: ['C++', 'Memory Mgmt', 'OOPs', 'Scripting', 'DS', 'Algo', 'Multithread'],
+      labels: { style: { fontSize: '11px', fontFamily: 'Poppins' } }
+    },
+    yAxis: {
+      min: 0,
+      max: 5,
+      title: {
+        text: 'Skill Level',
+        style: { fontFamily: 'Poppins' }
+      },
+      allowDecimals: false
+    },
+    tooltip: { pointFormat: '<b>{point.y}/5</b>' },
+    plotOptions: {
+      column: {
+        colorByPoint: true,
+        colors: ['#6c5ce7', '#74b9ff', '#00cec9', '#ffeaa7', '#fab1a0', '#a29bfe', '#55efc4'],
+        dataLabels: {
+          enabled: true,
+          format: '{point.y}/5',
+          style: { fontWeight: 'bold' }
+        }
+      }
+    },
+    series: [{
+      name: 'Skill',
+      data: [4, 3, 3, 2, 3, 3, 3],
+      showInLegend: false
+    }]
+  });
+  </script>
+
+
+</body>
+</html>
