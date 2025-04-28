@@ -23,6 +23,7 @@
 
     section {
       margin-bottom: 50px;
+      scroll-margin-top: 100px;
     }
 
     h1, h2, h3 {
@@ -125,13 +126,70 @@
     ul {
       padding-left: 20px;
     }
+
+    .square {
+      position: relative;
+      width: 100%;
+      padding-bottom: 100%; /* 1:1 Aspect Ratio */
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .square-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.4s ease; /* Smooth zoom animation */
+    }
+
+    .square-img:hover {
+      transform: scale(1.08); /* Zoom by 8% */
+    }
   </style>
 </head>
 
 <body>
 
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm" style="font-family: 'Poppins', sans-serif;">
+    <div class="container">
+      <!-- <a class="navbar-brand fw-bold" href="#">Anmol Tyagi</a> -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#meet">Meet</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#academics">Academics</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skills">Technical Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#workexperience">Work Experience</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#blog">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#hobby">Hobby</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
   <!-- About Me -->
-  <section class="text-center">
+  <section id="meet" class="text-center pt-5" style="padding-top: 100px;">
     <div class="container">
       <h1 class="display-4">Meet Anmol TYAGI</h1>
       <p class="lead">Born on September 28, 1995</p>
@@ -167,7 +225,7 @@
   </section>
 
   <!-- Academics -->
-  <section class="container section-card">
+  <section id="academics" class="container section-card">
     <h2 class="bi bi-mortarboard-fill" style="text-align: center;">&nbsp;Academics</h2>
     <table class="table table-hover align-middle mb-0">
       <thead>
@@ -202,7 +260,7 @@
   </section>
 
   <!-- Skills -->
-  <section style="background: #e8edf5; padding: 40px 0;">
+  <section id="skills" style="background: #e8edf5; padding: 40px 0;">
     <div class="container section-card">
       <h2 class="text-center bi bi-code-slash">&nbsp;Technical Skills</h2>
 
@@ -266,7 +324,7 @@
   </section>
 
   <!-- Work Experience -->
-  <section style="background: #e8edf5; padding: 40px 0;">
+  <section id="workexperience" style="background: #e8edf5; padding: 40px 0;">
     <div class="container section-card">
       <h2 class="text-center bi bi-buildings">&nbsp;Work Experience</h2>
 
@@ -308,7 +366,144 @@
     </div>
   </section>
 
-  <!--  -->
+  <!-- Technical blog: n00b301 -->
+  <section id="blog" style="background: #e8edf5; padding: 40px 0;">
+    <div class="container" style="padding: 0 40px;">
+      <div class="section-card" style="
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        padding: 40px;
+        font-family: 'Poppins', sans-serif;
+      ">
+      
+        <h2 class="text-center mb-4">Latest Blog Post</h2>
+  
+        <div id="blog-card" style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 20px;
+        ">
+          <h5 class="card-title" style="font-size: 20px; color: #6c5ce7;">Loading latest blog...</h5>
+          <p class="card-text" style="color: #2d3436;"></p>
+          <a href="#" class="btn btn-primary" target="_blank" style="
+            background-color: #6c5ce7;
+            border: none;
+            padding: 10px 20px;
+            font-weight: 500;
+            border-radius: 8px;
+          ">
+            Read Full Blog
+          </a>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  <script>
+  async function loadLatestBlog() {
+    try {
+      const feedUrl = encodeURIComponent('https://n00b301.wordpress.com/author/n00b301/feed/');
+      const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${feedUrl}`;
+  
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+  
+      const latestPost = data.items[0];
+      const title = latestPost.title;
+      const link = latestPost.link;
+      const description = latestPost.description.replace(/<[^>]*>?/gm, ''); // remove HTML tags
+  
+      document.querySelector("#blog-card .card-title").textContent = title;
+      document.querySelector("#blog-card .card-text").innerHTML = description.substring(0, 200) + '...';
+      document.querySelector("#blog-card a").href = link;
+  
+    } catch (error) {
+      console.error("Failed to load blog:", error);
+      document.querySelector("#blog-card .card-title").textContent = "Unable to load blog.";
+    }
+  }
+  
+  // Call it
+  loadLatestBlog();
+  </script>
+
+  <!-- Hobby Section -->
+  <section id="hobby" style="background: #e8edf5; padding: 40px 0;">
+    <div class="container" style="padding: 0 30px;">
+      <div class="section-card" style="
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        padding: 40px;
+        font-family: 'Poppins', sans-serif;
+      ">
+  
+        <!-- Title -->
+        <h2 class="text-center mb-4">Hobby: Exploring the World</h2>
+  
+        <!-- Hobby Description -->
+        <p class="text-center" style="font-size: 1.1rem; color: #2d3436; margin-bottom: 30px;">
+          Traveling is not just a hobby for me, it’s a way of life. 🌍✨  
+          Every journey brings new stories, cultures, friendships, and memories.  
+          I believe that traveling opens your mind, refreshes your soul, and makes you truly alive. 🚀
+        </p>
+  
+        <!-- Photo Grid -->
+        <div class="row g-3"> <!-- g-3 makes tighter, prettier grid -->
+          <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="square">
+              <img src="./resources/images/hobby-grid/20191130_172323.jpg" alt="Travel Photo 1" class="img-fluid rounded shadow-sm square-img">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="square">
+              <img src="./resources/images/hobby-grid/20191201_130024.jpg" alt="Travel Photo 2" class="img-fluid rounded shadow-sm square-img">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="square">
+              <img src="./resources/images/hobby-grid/_DSC6734.JPG" alt="Travel Photo 3" class="img-fluid rounded shadow-sm square-img">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="square">
+              <img src="./resources/images/hobby-grid/_DSC6801.JPG" alt="Travel Photo 4" class="img-fluid rounded shadow-sm square-img">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="square">
+              <img src="./resources/images/hobby-grid/IMG_3414.JPG" alt="Travel Photo 5" class="img-fluid rounded shadow-sm square-img">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="square">
+              <img src="./resources/images/hobby-grid/MVTTE2169.JPG" alt="Travel Photo 6" class="img-fluid rounded shadow-sm square-img">
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background-color: #2d3436; color: #dfe6e9; padding: 30px 0; font-family: 'Poppins', sans-serif; text-align: center; margin-top: 40px;">
+    <div class="container">
+      <p style="margin-bottom: 5px; font-size: 1rem;">
+        Crafted with ❤️ by Anmol Tyagi
+      </p>
+      <p style="margin-bottom: 5px; font-size: 0.9rem;">
+        📧 Email: <a href="mailto:anmol_tyagi@outlook.com" style="color: #74b9ff; text-decoration: none;">anmol_tyagi@outlook.com</a>
+      </p>
+      <p style="font-size: 0.8rem; color: #b2bec3;">
+        &copy; 2025 Anmol Tyagi | All rights reserved
+      </p>
+    </div>
+  </footer>
 
 </body>
 </html>
