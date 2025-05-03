@@ -1,520 +1,747 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Meet Anmol TYAGI</title>  
-  <meta name="viewport" content="width=1024, user-scalable=no">
-  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-    body {
-      background-color: #ffffff;
-      font-family: 'Poppins', sans-serif;
-      padding: 20px;
-    }
-
-    section {
-      margin-bottom: 50px;
-      scroll-margin-top: 100px;
-    }
-
-    h1, h2, h3 {
-      font-weight: 600;
-      color: #2d3436;
-    }
-
-    h2 {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    .section-card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-      padding: 30px;
-    }
-
-    .developer-bio, .about-image {
-      flex: 1 1 50%;
-      padding: 15px;
-    }
-
-    .developer-bio {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: #f8f9fa;
-      border-left: 5px solid #6c5ce7;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    }
-
-    .developer-bio p {
-      font-size: clamp(1rem, 2vw, 1.8rem);
-      margin: 0 0 12px;
-      color: #2d3436;
-      text-align: center;
-    }
-
-    .highlight {
-      color: #6c5ce7;
-    }
-
-    .about-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 5px solid #fff;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-
-    table {
-      width: 100%;
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-
-    thead th {
-      background-color: #6c5ce7;
-      color: white;
-      text-align: center;
-      padding: 12px;
-    }
-
-    tbody td {
-      padding: 12px;
-      text-align: center;
-    }
-
-    .skills-container, .experience-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .skills-text div {
-      margin-bottom: 8px;
-    }
-
-    .experience-item {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      gap: 20px;
-    }
-
-    .experience-item img {
-      max-width: 100px;
-      border-radius: 8px;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    .square {
-      position: relative;
-      width: 100%;
-      padding-bottom: 100%; /* 1:1 Aspect Ratio */
-      overflow: hidden;
-      border-radius: 12px;
-    }
-
-    .square-img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transition: transform 0.4s ease; /* Smooth zoom animation */
-    }
-
-    .square-img:hover {
-      transform: scale(1.08); /* Zoom by 8% */
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-      100% { transform: translateY(0); }
-    }
-
-    .img-float {
-      animation: float 3s ease-in-out infinite;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Meet Anmol TYAGI</title>  
+    <meta name="viewport" content="width=1024, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+        
+        body.light-mode {
+            background-color: #ffffff;
+            color: #2d3436;
+        }
+        
+        body.dark-mode {
+            background: linear-gradient(to right, #2d3436, #000000);
+            color: #dfe6e9;
+        }
+        
+        .dark-mode a, .dark-mode p, .dark-mode h1, .dark-mode h2, .dark-mode h3 {
+            color: #dfe6e9;
+        }
+        
+        /* DARK MODE: Card-like backgrounds and fonts */
+        body.dark-mode .section-card,
+        body.dark-mode .developer-bio,
+        body.dark-mode .table,
+        body.dark-mode .table thead th,
+        /* body.dark-mode .navbar, */
+        /* body.dark-mode .about-image img,
+        body.dark-mode .square-img, */
+        body.dark-mode .btn {
+            background-color: #2c2c2c !important;
+            color: #dfe6e9 !important;
+            border-color: transparent;
+        }
+        
+        /* Navbar links in dark mode */
+        body.dark-mode .navbar-nav .nav-link {
+            color: #dfe6e9 !important;
+        }
+        
+        /* Headings and text override for dark mode */
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode p,
+        body.dark-mode ul,
+        body.dark-mode li {
+            color: #dfe6e9 !important;
+        }
+        
+        /* Fix button text contrast */
+        body.dark-mode .btn-primary {
+            background-color: #6c5ce7;
+            color: white;
+        }
+        
+        /* Optional: subtle hover effect on cards */
+        body.dark-mode .section-card:hover {
+            background-color: #343434 !important;
+        }
+        
+        /* Improve contrast for table headings */
+        body.dark-mode thead th {
+            background-color: #444;
+            color: #ffffff;
+        }
+        
+        /* Table row hover effect for dark mode */
+        body.dark-mode tbody tr:hover {
+            background-color: #3a3a3a;
+        }
+        
+        body {
+            background-color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        
+        section {
+            margin-bottom: 50px;
+            scroll-margin-top: 100px;
+        }
+        
+        h1, h2, h3 {
+            font-weight: 600;
+            color: #2d3436;
+        }
+        
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .section-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            padding: 30px;
+        }
+        
+        .developer-bio, .about-image {
+            flex: 1 1 50%;
+            padding: 15px;
+        }
+        
+        .developer-bio {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #f8f9fa;
+            border-left: 5px solid #6c5ce7;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        
+        .developer-bio p {
+            font-size: clamp(1rem, 2vw, 1.8rem);
+            margin: 0 0 12px;
+            color: #2d3436;
+            text-align: center;
+        }
+        
+        .highlight {
+            color: #6c5ce7;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 5px solid #fff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        table {
+            width: 100%;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        thead th {
+            background-color: #6c5ce7;
+            color: white;
+            text-align: center;
+            padding: 12px;
+        }
+        
+        tbody td {
+            padding: 12px;
+            text-align: center;
+        }
+        
+        .skills-container, .experience-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .skills-text div {
+            margin-bottom: 8px;
+        }
+        
+        .experience-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        
+        .experience-item img {
+            max-width: 100px;
+            border-radius: 8px;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        .square {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%; /* 1:1 Aspect Ratio */
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        
+        .square-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.4s ease; /* Smooth zoom animation */
+        }
+        
+        .square-img:hover {
+            transform: scale(1.08); /* Zoom by 8% */
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
+        
+        .img-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .theme-toggle-container {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            z-index: 9999;
+        }
+        
+        /* Default section background */
+        .section-bg {
+            background-color: #e8edf5;
+        }
+        
+        /* Dark mode override */
+        body.dark-mode .section-bg {
+            background-color: #1e1e1e;
+        }
+        
+        .navbar {
+            transition: background-color 0.3s ease;
+        }
+        
+        body.light-mode .navbar {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        
+        body.dark-mode .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .dark-mode .section-card table {
+            background-color: #2c2c2c !important;
+            color: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .dark-mode .section-card thead th {
+            background-color: #444 !important;
+            color: #ffffff !important;
+        }
+        
+        .dark-mode .section-card tbody td {
+            background-color: #2c2c2c !important;
+            color: #dddddd !important;
+        }
+        
+        /* Link styling for light mode */
+        body.light-mode a {
+            color: #07003d;
+            text-decoration: none;
+        }
+        
+        body.light-mode a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Link styling for dark mode */
+        body.dark-mode a {
+            color: #e9e9e9;
+            text-decoration: none;
+        }
+        
+        body.dark-mode a:hover {
+            text-decoration: underline;
+        }
+        
+        a {
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        /* Light mode link color */
+        body.light-mode a {
+            color: #07003d;
+        }
+        
+        /* Dark mode link color */
+        body.dark-mode a {
+            color: #8ab4f8;  /* Light blue that contrasts well on dark background */
+        }
+        
+        /* Optional: Hover effect */
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer - Light Theme */
+        body.light-mode footer {
+            background-color: #f1f3f5;
+            color: #2d3436;
+        }
+        
+        /* Footer - Dark Theme */
+        body.dark-mode footer {
+            background-color: #000000;
+            color: #dfe6e9;
+        }
+        
+        body.dark-mode footer a {
+            color: #535861;
+        }
+        
+        body.light-mode footer a {
+            color: #07003d;
+        }
+        
+        footer a {
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
 </head>
 
 <body>
+    
+    <div class="theme-toggle-container">
+        <label for="themeSwitch">Dark Mode</label>
+        <input type="checkbox" id="themeSwitch" onchange="toggleTheme()">
+    </div>
+    
+    <!-- Navigation Bar -->
+    <nav id="mainNavbar" class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <!-- <a class="navbar-brand fw-bold" href="#">Anmol Tyagi</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#meet">Meet</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Technical Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#workexperience">Work Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#academics">Academics</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#blog">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#hobby">Hobby</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-  <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm" style="font-family: 'Poppins', sans-serif;">
+<!-- About Me -->
+<section id="meet" class="text-center pt-5" style="padding-top: 100px;">
     <div class="container">
-      <!-- <a class="navbar-brand fw-bold" href="#">Anmol Tyagi</a> -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#meet">Meet</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#academics">Academics</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#skills">Technical Skills</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#workexperience">Work Experience</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#blog">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#hobby">Hobby</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- About Me -->
-  <section id="meet" class="text-center pt-5" style="padding-top: 100px;">
-    <div class="container">
-      <h1 class="display-4">Meet Anmol TYAGI</h1>
-      <p class="lead">Born on September 28, 1995</p>
-      <p class="lead">
-        <span class="highlight">Email:</span> 
-        <a href="mailto:anmol_tyagi@outlook.com" style="text-decoration: none; color: #07003d;">anmol_tyagi@outlook.com</a> 
-        &nbsp;|&nbsp;
-        <span class="highlight">Blog:</span> 
-        <a href="https://n00b301.wordpress.com/author/n00b301/" target="_blank" style="text-decoration: none; color: #07003d;">
-          https://n00b301.wordpress.com/author/n00b301/
-        </a>
-      </p>
-      
-      
-      <div class="d-flex flex-wrap">
-        <div class="about-image">
-          <img src="./resources/images/self-emoji.png" class="img-fluid img-float" alt="My Photo">
+        <h1 class="display-4">Meet Anmol TYAGI</h1>
+        <p class="lead">Born on September 28, 1995</p>
+        <p class="lead">
+            <span class="highlight">Email:</span> 
+            <a href="mailto:anmol_tyagi@outlook.com">anmol_tyagi@outlook.com</a>
+            &nbsp;|&nbsp;
+            <span class="highlight">Blog:</span> 
+            <a href="https://n00b301.wordpress.com/author/n00b301/">https://n00b301.wordpress.com/author/n00b301/</a>
+        </p>
+        
+        
+        <div class="d-flex flex-wrap">
+            <div class="about-image">
+                <!-- <img src="./resources/images/self-emoji.png" class="img-fluid img-float" alt="My Photo"> -->
+                <img src="./resources/images/self-emoji.png" alt="My Photo">
+            </div>
+            <div class="developer-bio">
+                <p>Building <span class="highlight">secure, scalable systems</span> with <strong>C++</strong> and grit.</p>
+                <p><span id="experience-years"></span> of crafting <span class="highlight">embedded intelligence</span> and <span class="highlight">modern UIs</span>.</p>
+            </div>
         </div>
-        <div class="developer-bio">
-          <p>Building <span class="highlight">secure, scalable systems</span> with <strong>C++</strong> and grit.</p>
-          <p><span id="experience-years"></span> of crafting <span class="highlight">embedded intelligence</span> and <span class="highlight">modern UIs</span>.</p>
-        </div>
-      </div>
     </div>
-
+    
     <script>
-      const startDate = new Date('2016-08-01');
-      const today = new Date();
-      const diff = today - startDate;
-      const years = diff / (1000 * 60 * 60 * 24 * 365.25);
-      document.getElementById('experience-years').textContent = `${Math.floor(years)}+ years`;
+        const startDate = new Date('2016-08-01');
+        const today = new Date();
+        const diff = today - startDate;
+        const years = diff / (1000 * 60 * 60 * 24 * 365.25);
+        document.getElementById('experience-years').textContent = `${Math.floor(years)}+ years`;
     </script>
-  </section>
+</section>
 
-  <!-- Skills -->
-  <section id="skills" style="background: #e8edf5; padding: 40px 0;">
+<!-- Skills -->
+<section id="skills"  padding: 40px 0;">
     <div class="container section-card">
-      <h2 class="text-center bi bi-code-slash">&nbsp;Technical Skills</h2>
-
-      <div class="skills-container">
-        <!-- Chart -->
-        <div id="skill-level-chart" style="flex: 1 1 45%; min-width: 320px; height: 400px;"></div>
-
-        <!-- Skill Set -->
-        <div class="skills-text" style="flex: 1 1 50%;">
-          <div><strong style="color: #6c5ce7;">Programming Languages/Features:</strong> C, C++, STL, OOP, Memory Management</div>
-          <div><strong style="color: #6c5ce7;">Database Management:</strong> SQLite3</div>
-          <div><strong style="color: #6c5ce7;">Scripting Languages:</strong> Python, Shell (Basic)</div>
-          <div><strong style="color: #6c5ce7;">Computer Science Fundamentals:</strong> Data Structures, Algorithms, Build Systems (YOCTO), Multithreading, IPC, Cryptography, TCP/IP stack</div>
-          <div><strong style="color: #6c5ce7;">Frameworks:</strong> Qt C++, Thrift (RPC)</div>
-          <div><strong style="color: #6c5ce7;">SCM Tools:</strong> Perforce, SVN, Git</div>
-          <div><strong style="color: #6c5ce7;">SAST:</strong> Coverity, Blackduck</div>
+        <h2 class="text-center bi bi-code-slash">&nbsp;Technical Skills</h2>
+        
+        <div class="skills-container">
+            <!-- Chart -->
+            <div id="skill-level-chart" style="flex: 1 1 45%; min-width: 320px; height: 400px;"></div>
+            
+            <!-- Skill Set -->
+            <div class="skills-text" style="flex: 1 1 50%;">
+                <div><strong style="color: #6c5ce7;">Programming Languages/Features:</strong> C, C++, STL, OOP, Memory Management</div>
+                <div><strong style="color: #6c5ce7;">Database Management:</strong> SQLite3</div>
+                <div><strong style="color: #6c5ce7;">Scripting Languages:</strong> Python, Shell (Basic)</div>
+                <div><strong style="color: #6c5ce7;">Computer Science Fundamentals:</strong> Data Structures, Algorithms, Build Systems (YOCTO), Multithreading, IPC, Cryptography, TCP/IP stack</div>
+                <div><strong style="color: #6c5ce7;">Frameworks:</strong> Qt C++, Thrift (RPC)</div>
+                <div><strong style="color: #6c5ce7;">SCM Tools:</strong> Perforce, SVN, Git</div>
+                <div><strong style="color: #6c5ce7;">SAST:</strong> Coverity, Blackduck</div>
+            </div>
         </div>
-      </div>
     </div>
-
+    
     <script>
-      Highcharts.chart('skill-level-chart', {
-        chart: {
-          type: 'column',
-          backgroundColor: '#f8f9fa',
-          borderRadius: 10
-        },
-        title: { text: null },
-        xAxis: {
-          categories: ['C++', 'Memory Mgmt', 'OOP', 'Scripting', 'DS', 'Algo', 'Multithreading'],
-          labels: { style: { fontSize: '11px', fontFamily: 'Poppins' } }
-        },
-        yAxis: {
-          min: 0,
-          max: 5,
-          title: {
-            text: 'Skill Level',
-            style: { fontFamily: 'Poppins' }
-          },
-          allowDecimals: false
-        },
-        tooltip: { pointFormat: '<b>{point.y}/5</b>' },
-        plotOptions: {
-          column: {
-            colorByPoint: true,
-            colors: ['#6c5ce7', '#74b9ff', '#00cec9', '#ffeaa7', '#fab1a0', '#a29bfe', '#55efc4'],
-            dataLabels: {
-              enabled: true,
-              format: '{point.y}/5',
-              style: { fontWeight: 'bold' }
-            }
-          }
-        },
-        series: [{
-          name: 'Skill',
-          data: [4, 3, 3, 2, 3, 3, 3],
-          showInLegend: false
-        }]
-      });
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.classList.add(`${savedTheme}-mode`);
+            document.getElementById('themeSwitch').checked = savedTheme === 'dark';
+            renderChart();
+        });
     </script>
-  </section>
+</section>
 
-  <!-- Work Experience -->
-  <section id="workexperience" style="background: #e8edf5; padding: 40px 0;">
+<!-- Work Experience -->
+<section id="workexperience"  padding: 40px 0;">
     <div class="container section-card">
-      <h2 class="text-center bi bi-buildings">&nbsp;Work Experience</h2>
-
-      <!-- EPAM Systems -->
-      <div class="experience-item mb-4">
-        <img src="./resources/images/epam_systems_logo.jpeg" alt="EPAM Systems">
-        <div>
-          <h3>EPAM Systems <span style="font-size: 16px; font-weight: normal;">(Senior Software Engineer)</span></h3>
-          <p>Oct 2024 – Present</p>
-          <ul>
-            <li>Ported legacy Linux applications from 32-bit to 64-bit architecture.</li>
-            <li>Led SAST (Static Application Security Testing) initiatives for cybersecurity hardening.</li>
-            <li>Delivered continuous product improvements with performance, stability, and security in mind.</li>
-            <li>Migrating bootstrap from v3 to v5 and managing other third party components as well.</li>
-          </ul>
+        <h2 class="text-center bi bi-buildings">&nbsp;Work Experience</h2>
+        
+        <!-- EPAM Systems -->
+        <div class="experience-item mb-4">
+            <img src="./resources/images/epam_systems_logo.jpeg" alt="EPAM Systems">
+            <div>
+                <h3>EPAM Systems <span style="font-size: 16px; font-weight: normal;">(Senior Software Engineer)</span></h3>
+                <p>Oct 2024 – Present</p>
+                <ul>
+                    <li>Ported legacy Linux applications from 32-bit to 64-bit architecture.</li>
+                    <li>Led SAST (Static Application Security Testing) initiatives for cybersecurity hardening.</li>
+                    <li>Delivered continuous product improvements with performance, stability, and security in mind.</li>
+                    <li>Migrating bootstrap from v3 to v5 and managing other third party components as well.</li>
+                </ul>
+            </div>
         </div>
-      </div>
-
-      <!-- IDEMIA -->
-      <div class="experience-item">
-        <img src="./resources/images/idemia-logo.jpg" alt="IDEMIA">
-        <div>
-          <h3>IDEMIA <span style="font-size: 16px; font-weight: normal;">(Lead Software Engineer)</span></h3>
-          <p>Aug 2016 – Oct 2024</p>
-          <ul>
-            <li>Led business logic development for biometric access control systems.</li>
-            <li>Ported all user space applications to 64-bit architecture.</li>
-            <li>Optimized product energy consumption via proximity sensor integration.</li>
-            <li>Developed finite state machines for sensor management.</li>
-            <li>Integrated mobile credential access (BLE and NFC).</li>
-            <li>Smart card management (Mifare, iClass, Desfire).</li>
-            <li>Added multi-modality (Face + Finger biometry).</li>
-            <li>Cybersecurity improvements via Blackduck and Coverity SAST tools.</li>
-            <li>Built a chatbot to assist customers with product queries.</li>
-            <li>Contributed to eUICC M2M toolkit development.</li>
-          </ul>
+        
+        <!-- IDEMIA -->
+        <div class="experience-item">
+            <img src="./resources/images/idemia-logo.jpg" alt="IDEMIA">
+            <div>
+                <h3>IDEMIA <span style="font-size: 16px; font-weight: normal;">(Lead Software Engineer)</span></h3>
+                <p>Aug 2016 – Oct 2024</p>
+                <ul>
+                    <li>Led business logic development for biometric access control systems.</li>
+                    <li>Ported all user space applications to 64-bit architecture.</li>
+                    <li>Optimized product energy consumption via proximity sensor integration.</li>
+                    <li>Developed finite state machines for sensor management.</li>
+                    <li>Integrated mobile credential access (BLE and NFC).</li>
+                    <li>Smart card management (Mifare, iClass, Desfire).</li>
+                    <li>Added multi-modality (Face + Finger biometry).</li>
+                    <li>Cybersecurity improvements via Blackduck and Coverity SAST tools.</li>
+                    <li>Built a chatbot to assist customers with product queries.</li>
+                    <li>Contributed to eUICC M2M toolkit development.</li>
+                </ul>
+            </div>
         </div>
-      </div>
-
+        
     </div>
-  </section>
+</section>
 
-  <!-- Academics -->
-  <section id="academics" class="container section-card">
+<!-- Academics -->
+<section id="academics" class="container section-card">
     <h2 class="bi bi-mortarboard-fill" style="text-align: center;">&nbsp;Academics</h2>
     <table class="table table-hover align-middle mb-0">
-      <thead>
-        <tr>
-          <th>Degree / Class</th>
-          <th>Institution</th>
-          <th>Location</th>
-          <th>Aggregate / CGPA</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>B. Tech Hons. (CSE)</td>
-          <td>I.T.S Engineering College</td>
-          <td>Greater Noida</td>
-          <td>77.74%</td>
-        </tr>
-        <tr>
-          <td>Intermediate</td>
-          <td>S.D Public School</td>
-          <td>Muzaffarnagar, U.P.</td>
-          <td>70%</td>
-        </tr>
-        <tr>
-          <td>AISSC</td>
-          <td>S.D Public School</td>
-          <td>Muzaffarnagar, U.P.</td>
-          <td>8.6 CGPA</td>
-        </tr>
-      </tbody>
+        <thead>
+            <tr>
+                <th>Degree / Class</th>
+                <th>Institution</th>
+                <th>Location</th>
+                <th>Aggregate / CGPA</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>B. Tech Hons. (CSE)</td>
+                <td>I.T.S Engineering College</td>
+                <td>Greater Noida</td>
+                <td>77.74%</td>
+            </tr>
+            <tr>
+                <td>Intermediate</td>
+                <td>S.D Public School</td>
+                <td>Muzaffarnagar, U.P.</td>
+                <td>70%</td>
+            </tr>
+            <tr>
+                <td>AISSC</td>
+                <td>S.D Public School</td>
+                <td>Muzaffarnagar, U.P.</td>
+                <td>8.6 CGPA</td>
+            </tr>
+        </tbody>
     </table>
-  </section>
+</section>
 
-  <!-- Technical blog: n00b301 -->
-  <section id="blog" style="background: #e8edf5; padding: 40px 0;">
+<!-- Technical blog: n00b301 -->
+<section id="blog"  padding: 40px 0;">
     <div class="container" style="padding: 0 40px;">
-      <div class="section-card" style="
+        <div class="section-card" style="
         background: #fff;
         border-radius: 12px;
         box-shadow: 0 8px 20px rgba(0,0,0,0.05);
         padding: 40px;
         font-family: 'Poppins', sans-serif;
-      ">
-      
-        <h2 class="text-center mb-4">Where code meets clarity — my technical writings</h2>
-  
-        <div id="blog-card" style="
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          gap: 20px;
         ">
-          <h5 class="card-title" style="font-size: 20px; color: #6c5ce7;">Loading latest blog...</h5>
-          <p class="card-text" style="color: #2d3436;"></p>
-          <a href="#" class="btn btn-primary" target="_blank" style="
-            background-color: #6c5ce7;
-            border: none;
-            padding: 10px 20px;
-            font-weight: 500;
-            border-radius: 8px;
-          ">
-            Read Full Blog
-          </a>
-        </div>
-  
-      </div>
-    </div>
-  </section>
-  
-  <script>
-  async function loadLatestBlog() {
-    try {
-      const feedUrl = encodeURIComponent('https://n00b301.wordpress.com/author/n00b301/feed/');
-      const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${feedUrl}`;
-  
-      const response = await fetch(apiUrl);
-      const data = await response.json();
-  
-      const latestPost = data.items[0];
-      const title = latestPost.title;
-      const link = latestPost.link;
-      const description = latestPost.description.replace(/<[^>]*>?/gm, ''); // remove HTML tags
-  
-      document.querySelector("#blog-card .card-title").textContent = title;
-      document.querySelector("#blog-card .card-text").innerHTML = description.substring(0, 200) + '...';
-      document.querySelector("#blog-card a").href = link;
-  
-    } catch (error) {
-      console.error("Failed to load blog:", error);
-      document.querySelector("#blog-card .card-title").textContent = "Unable to load blog.";
-    }
-  }
-  
-  // Call it
-  loadLatestBlog();
-  </script>
+        
+        <h2 class="text-center mb-4">Where code meets clarity — my technical writings</h2>
+        
+        <div id="blog-card" style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+        ">
+        <h5 class="card-title" style="font-size: 20px; color: #6c5ce7;">Loading latest blog...</h5>
+        <p class="card-text" style="color: #2d3436;"></p>
+        <a href="#" class="btn btn-primary" target="_blank" style="
+        background-color: #6c5ce7;
+        border: none;
+        padding: 10px 20px;
+        font-weight: 500;
+        border-radius: 8px;
+        ">
+        Read Full Blog
+    </a>
+</div>
 
-  <!-- Hobby Section -->
-  <section id="hobby" style="background: #e8edf5; padding: 40px 0;">
+</div>
+</div>
+</section>
+
+<script>
+    async function loadLatestBlog() {
+        try {
+            const feedUrl = encodeURIComponent('https://n00b301.wordpress.com/author/n00b301/feed/');
+            const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${feedUrl}`;
+            
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            
+            const latestPost = data.items[0];
+            const title = latestPost.title;
+            const link = latestPost.link;
+            const description = latestPost.description.replace(/<[^>]*>?/gm, ''); // remove HTML tags
+            
+            document.querySelector("#blog-card .card-title").textContent = title;
+            document.querySelector("#blog-card .card-text").innerHTML = description.substring(0, 200) + '...';
+            document.querySelector("#blog-card a").href = link;
+            
+        } catch (error) {
+            console.error("Failed to load blog:", error);
+            document.querySelector("#blog-card .card-title").textContent = "Unable to load blog.";
+        }
+    }
+    
+    // Call it
+    loadLatestBlog();
+</script>
+
+<!-- Hobby Section -->
+<section id="hobby"  padding: 40px 0;>
     <div class="container" style="padding: 0 30px;">
-      <div class="section-card" style="
+        <div class="section-card" style="
         background: #fff;
         border-radius: 12px;
         box-shadow: 0 8px 20px rgba(0,0,0,0.05);
         padding: 40px;
         font-family: 'Poppins', sans-serif;
-      ">
-  
+        ">
+        
         <!-- Title -->
         <h2 class="text-center mb-4">Hobby: Exploring the World</h2>
-  
+        
         <!-- Hobby Description -->
         <p class="text-center" style="font-size: 1.1rem; color: #2d3436; margin-bottom: 30px;">
-          Traveling is not just a hobby for me, it’s a way of life. 🌍✨  
-          Every journey brings new stories, cultures, friendships, and memories.  
-          I believe that traveling opens your mind, refreshes your soul, and makes you truly alive. 🚀
+            Traveling is not just a hobby for me, it’s a way of life. 🌍✨  
+            Every journey brings new stories, cultures, friendships, and memories.  
+            I believe that traveling opens your mind, refreshes your soul, and makes you truly alive. 🚀
         </p>
-  
+        
         <!-- Photo Grid -->
         <div class="row g-3"> <!-- g-3 makes tighter, prettier grid -->
-          <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="square">
-              <img src="./resources/images/hobby-grid/20191130_172323.jpg" alt="Travel Photo 1" class="img-fluid rounded shadow-sm square-img">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="square">
+                    <img src="./resources/images/hobby-grid/20191130_172323.jpg" alt="Travel Photo 1" class="img-fluid rounded shadow-sm square-img">
+                </div>
             </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="square">
-              <img src="./resources/images/hobby-grid/20191201_130024.jpg" alt="Travel Photo 2" class="img-fluid rounded shadow-sm square-img">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="square">
+                    <img src="./resources/images/hobby-grid/20191201_130024.jpg" alt="Travel Photo 2" class="img-fluid rounded shadow-sm square-img">
+                </div>
             </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="square">
-              <img src="./resources/images/hobby-grid/DSC6734.JPG" alt="Travel Photo 3" class="img-fluid rounded shadow-sm square-img">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="square">
+                    <img src="./resources/images/hobby-grid/DSC6734.JPG" alt="Travel Photo 3" class="img-fluid rounded shadow-sm square-img">
+                </div>
             </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="square">
-              <img src="./resources/images/hobby-grid/DSC6801.JPG" alt="Travel Photo 4" class="img-fluid rounded shadow-sm square-img">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="square">
+                    <img src="./resources/images/hobby-grid/DSC6801.JPG" alt="Travel Photo 4" class="img-fluid rounded shadow-sm square-img">
+                </div>
             </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="square">
-              <img src="./resources/images/hobby-grid/IMG_3414.JPG" alt="Travel Photo 5" class="img-fluid rounded shadow-sm square-img">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="square">
+                    <img src="./resources/images/hobby-grid/IMG_3414.JPG" alt="Travel Photo 5" class="img-fluid rounded shadow-sm square-img">
+                </div>
             </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="square">
-              <img src="./resources/images/hobby-grid/MVTTE2169.JPG" alt="Travel Photo 6" class="img-fluid rounded shadow-sm square-img">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="square">
+                    <img src="./resources/images/hobby-grid/MVTTE2169.JPG" alt="Travel Photo 6" class="img-fluid rounded shadow-sm square-img">
+                </div>
             </div>
-          </div>
         </div>
-  
-      </div>
+        
     </div>
-  </section>
+</div>
+</section>
 
-  <!-- Footer -->
-  <footer style="background-color: #2d3436; color: #dfe6e9; padding: 30px 0; font-family: 'Poppins', sans-serif; text-align: center; margin-top: 40px;">
-    <div class="container">
-      <p style="margin-bottom: 5px; font-size: 1rem;">
-        Crafted with ❤️ by Anmol TYAGI
-      </p>
-      <p style="margin-bottom: 5px; font-size: 0.9rem;">
-        📧 Email: <a href="mailto:anmol_tyagi@outlook.com" style="color: #74b9ff; text-decoration: none;">anmol_tyagi@outlook.com</a>
-      </p>
-      <p style="font-size: 0.8rem; color: #b2bec3;">
-        &copy; 2025 Anmol Tyagi | All rights reserved
-      </p>
+<!-- Footer -->
+<footer>
+    <div class="container" style="text-align: center; padding: 30px 0; font-family: 'Poppins', sans-serif; margin-top: 40px;">
+        <p style="margin-bottom: 5px; font-size: 1rem;">
+            Crafted with ❤️ by Anmol TYAGI
+        </p>
+        <p style="margin-bottom: 5px; font-size: 0.9rem;">
+            📧 Email: <a href="mailto:anmol_tyagi@outlook.com">anmol_tyagi@outlook.com</a>
+        </p>
+        <p style="font-size: 0.8rem; color: inherit;">
+            &copy; 2025 Anmol Tyagi | All rights reserved
+        </p>
     </div>
-  </footer>
+</footer>
+
+<script>
+    
+    function applyTheme(theme) {
+        document.body.classList.remove('light-mode', 'dark-mode');
+        document.body.classList.add(`${theme}-mode`);
+    }
+    
+    
+    let chartInstance;
+    
+    function renderChart() {
+        const isDark = document.body.classList.contains('dark-mode');
+        const bg = isDark ? '#2c2c2c' : '#f8f9fa';
+        
+        chartInstance = Highcharts.chart('skill-level-chart', {
+            chart: {
+                type: 'column',
+                backgroundColor: bg,
+                borderRadius: 10
+            },
+            title: { text: null },
+            xAxis: {
+                categories: ['C++', 'Memory Mgmt', 'OOP', 'Scripting', 'DS', 'Algo', 'Multithreading'],
+                labels: { style: { fontSize: '11px', fontFamily: 'Poppins', color: isDark ? '#fff' : '#000' } }
+            },
+            yAxis: {
+                min: 0,
+                max: 5,
+                title: {
+                    text: 'Skill Level',
+                    style: { fontFamily: 'Poppins', color: isDark ? '#fff' : '#000' }
+                },
+                labels: { style: { color: isDark ? '#fff' : '#000' } },
+                gridLineColor: isDark ? '#444' : '#e6e6e6'
+            },
+            tooltip: { pointFormat: '<b>{point.y}/5</b>' },
+            plotOptions: {
+                column: {
+                    colorByPoint: true,
+                    colors: ['#6c5ce7', '#74b9ff', '#00cec9', '#ffeaa7', '#fab1a0', '#a29bfe', '#55efc4'],
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y}/5',
+                        style: { fontWeight: 'bold', color: isDark ? '#fff' : '#000' }
+                    }
+                }
+            },
+            series: [{
+                name: 'Skill',
+                data: [4, 3, 3, 2, 3, 3, 3],
+                showInLegend: false
+            }],
+            credits: { enabled: false }
+        });
+    }
+    
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        document.body.classList.toggle('light-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        renderChart(); // re-render with new theme
+        applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+    }
+    
+    // On page load, set the theme
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.body.classList.add(`${savedTheme}-mode`);
+        applyTheme(savedTheme);
+        document.getElementById('themeSwitch').checked = savedTheme === 'dark';
+    });
+</script>
 
 </body>
 </html>
