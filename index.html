@@ -149,6 +149,16 @@
     .square-img:hover {
       transform: scale(1.08); /* Zoom by 8% */
     }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
+
+    .img-float {
+      animation: float 3s ease-in-out infinite;
+    }
   </style>
 </head>
 
@@ -206,7 +216,7 @@
       
       <div class="d-flex flex-wrap">
         <div class="about-image">
-          <img src="./resources/images/self-emoji.png" alt="My Photo">
+          <img src="./resources/images/self-emoji.png" class="img-fluid img-float" alt="My Photo">
         </div>
         <div class="developer-bio">
           <p>Building <span class="highlight">secure, scalable systems</span> with <strong>C++</strong> and grit.</p>
@@ -222,41 +232,6 @@
       const years = diff / (1000 * 60 * 60 * 24 * 365.25);
       document.getElementById('experience-years').textContent = `${Math.floor(years)}+ years`;
     </script>
-  </section>
-
-  <!-- Academics -->
-  <section id="academics" class="container section-card">
-    <h2 class="bi bi-mortarboard-fill" style="text-align: center;">&nbsp;Academics</h2>
-    <table class="table table-hover align-middle mb-0">
-      <thead>
-        <tr>
-          <th>Degree / Class</th>
-          <th>Institution</th>
-          <th>Location</th>
-          <th>Aggregate / CGPA</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>B. Tech Hons. (CSE)</td>
-          <td>I.T.S Engineering College</td>
-          <td>Greater Noida</td>
-          <td>77.74%</td>
-        </tr>
-        <tr>
-          <td>Intermediate</td>
-          <td>S.D Public School</td>
-          <td>Muzaffarnagar, U.P.</td>
-          <td>70%</td>
-        </tr>
-        <tr>
-          <td>AISSC</td>
-          <td>S.D Public School</td>
-          <td>Muzaffarnagar, U.P.</td>
-          <td>8.6 CGPA</td>
-        </tr>
-      </tbody>
-    </table>
   </section>
 
   <!-- Skills -->
@@ -365,6 +340,41 @@
       </div>
 
     </div>
+  </section>
+
+  <!-- Academics -->
+  <section id="academics" class="container section-card">
+    <h2 class="bi bi-mortarboard-fill" style="text-align: center;">&nbsp;Academics</h2>
+    <table class="table table-hover align-middle mb-0">
+      <thead>
+        <tr>
+          <th>Degree / Class</th>
+          <th>Institution</th>
+          <th>Location</th>
+          <th>Aggregate / CGPA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>B. Tech Hons. (CSE)</td>
+          <td>I.T.S Engineering College</td>
+          <td>Greater Noida</td>
+          <td>77.74%</td>
+        </tr>
+        <tr>
+          <td>Intermediate</td>
+          <td>S.D Public School</td>
+          <td>Muzaffarnagar, U.P.</td>
+          <td>70%</td>
+        </tr>
+        <tr>
+          <td>AISSC</td>
+          <td>S.D Public School</td>
+          <td>Muzaffarnagar, U.P.</td>
+          <td>8.6 CGPA</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
   <!-- Technical blog: n00b301 -->
@@ -495,7 +505,7 @@
   <footer style="background-color: #2d3436; color: #dfe6e9; padding: 30px 0; font-family: 'Poppins', sans-serif; text-align: center; margin-top: 40px;">
     <div class="container">
       <p style="margin-bottom: 5px; font-size: 1rem;">
-        Crafted with ❤️ by Anmol Tyagi
+        Crafted with ❤️ by Anmol TYAGI
       </p>
       <p style="margin-bottom: 5px; font-size: 0.9rem;">
         📧 Email: <a href="mailto:anmol_tyagi@outlook.com" style="color: #74b9ff; text-decoration: none;">anmol_tyagi@outlook.com</a>
