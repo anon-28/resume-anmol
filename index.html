@@ -353,7 +353,22 @@
         body.dark-mode .theme-label {
             color: #dfe6e9; /* Light text for dark mode */
         }
-        
+
+        .recommendation-card {
+            background-color: #f8f9fa;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark-mode .recommendation-card {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+
+        body.dark-mode .recommendation-card .text-muted,
+        body.dark-mode .recommendation-card small {
+            color: #b2bec3 !important;
+        }
+                
     </style>
 </head>
 
@@ -391,6 +406,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#blog">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#recommendations">Recommendations</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#hobby">Hobby</a>
@@ -436,7 +454,7 @@
 </section>
 
 <!-- Skills -->
-<section id="skills"  padding: 40px 0;">
+<section id="skills"  padding: 40px 0;>
     <div class="container section-card">
         <h2 class="text-center bi bi-code-slash">&nbsp;Technical Skills</h2>
         
@@ -468,7 +486,7 @@
 </section>
 
 <!-- Work Experience -->
-<section id="workexperience"  padding: 40px 0;">
+<section id="workexperience"  padding: 40px 0;>
     <div class="container section-card">
         <h2 class="text-center bi bi-buildings">&nbsp;Work Experience</h2>
         
@@ -547,7 +565,7 @@
 </section>
 
 <!-- Technical blog: n00b301 -->
-<section id="blog"  padding: 40px 0;">
+<section id="blog"  padding: 40px 0;>
     <div class="container" style="padding: 0 40px;">
         <div class="section-card" style="
         background: #fff;
@@ -610,6 +628,41 @@
     // Call it
     loadLatestBlog();
 </script>
+
+<section id="recommendations" class="container section-card my-5">
+    <h2 class="text-center mb-4">Recommendations(Linkedin)</h2>
+    <div class="row g-4">
+      <div class="col-md-6 d-flex">
+        <div class="p-4 rounded shadow-sm recommendation-card light-mode w-100 d-flex flex-column">
+          <h5 class="mb-1">Nitin Kumar</h5>
+          <p class="text-muted mb-1">Specialist Engineer | R&D | CPP | Embedded System | Firmware Developer | QT Developer</p>
+          <small class="text-muted">September 11, 2024 — Worked with Anmol on the same team</small>
+          <p class="mt-3 flex-grow-1" style="font-size: 0.95rem;">
+            I’ve had the privilege of working alongside Anmol Tyagi for several years, and I am continually impressed by his technical expertise and leadership in the software development field, particularly in embedded systems. With over 8 years of experience, he has consistently demonstrated a deep understanding of technical solutions and software architecture, making him an invaluable asset to any project he works on.
+            <br><br>
+            As a Technical Lead, his strategic thinking and problem-solving abilities stand out. He has a rare talent for breaking down complex technical challenges and turning them into streamlined, efficient solutions. His deep knowledge of embedded systems is complemented by his growing interest and proficiency in cybersecurity—a critical area in today’s technology landscape. He is always ahead of the curve, ensuring that security is a priority in the systems we develop.
+            <br><br>
+            Beyond his technical skills, he is an excellent leader and mentor. He fosters a collaborative, positive team environment, encouraging growth and innovation. His ability to guide teams through complex technical landscapes while maintaining a focus on both security and performance has been key to our project successes.
+            <br><br>
+            I highly recommend Anmol Tyagi for any leadership role in software development or cybersecurity. His technical acumen, leadership, and focus on security make him an exceptional asset to any organization.
+          </p>
+        </div>
+      </div>
+  
+      <div class="col-md-6 d-flex">
+        <div class="p-4 rounded shadow-sm recommendation-card light-mode w-100 d-flex flex-column">
+          <h5 class="mb-1">Pallavi Madhwar</h5>
+          <p class="text-muted mb-1">eSIM | ETSI | UICC | ISO-7816-3 | OTA | ISO 14443</p>
+          <small class="text-muted">February 1, 2021 — Senior to Anmol but didn’t manage him directly</small>
+          <p class="mt-3 flex-grow-1" style="font-size: 0.95rem;">
+            Anmol is a savvy problem solver. Having Anmol in the team makes a huge difference. Anmol always sets a great example for his co-workers. To be honest it is hard to explain how integral he is to the team. I appreciate Anmol as he is quick to take initiative, he always finds a way to get things done, and done well. His hunger to learn and adapt makes him incredible.
+            <br><br>
+            Kudos for your dedication! Keep progressing and keep up your great work!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
 <!-- Hobby Section -->
 <section id="hobby"  padding: 40px 0;>
