@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Explainer - Anmol Tyagi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="light-mode">
+    
+    <section id="project-details" class="container section-card">
+        <h2 class="text-center mb-4"><i class="bi bi-cpu"></i> Project Explainer</h2>
+        
+        <div class="mb-5 fadeIn">
+            <h4><i class="bi bi-person-badge"></i> At IDEMIA – Biometric Access & Time Tracking Terminals</h4>
+            <p class="highlight-box">
+                Biometric terminals are designed for secure, modular access and time tracking across enterprise environments. These terminals integrate facial and fingerprint recognition and support standalone or IP-networked deployments.
+            </p>
+            
+            <ul class="project-points">
+                <li>Engineered a finite state machine in C++ using <code>tinyFSM</code> to manage proximity sensors and optimize power usage.</li>
+                <li>Enabled multi-modality in biometric devices—supporting both facial and fingerprint recognition in a single product.</li>
+                <li>Resolved performance issues, including server response lag and inefficient memory allocation using arena allocators.</li>
+                <li>Developed a proof-of-concept OTP authentication flow using Firebase for real-time user verification.</li>
+                <li>Implemented a visitor management system using QR codes as temporary access credentials.</li>
+                <li>Integrated support for various smart card technologies like Mifare Ultralight and HID Seos.</li>
+            </ul>
+            
+            <div class="tech-stack">
+                <strong>Tech Stack:</strong> C/C++, C#, Ruby, YOCTO, HTML, CSS, JavaScript, SQLite3, Cryptography, SVN, GIT, Coverity, Blackduck
+            </div>
+        </div>
+        
+        <div class="fadeIn">
+            <h4><i class="bi bi-shield-check"></i> At EPAM – Ivanti Connect Secure (ICS)</h4>
+            <p class="highlight-box">
+                ICS is an enterprise VPN solution offering high-throughput secure access and simplified appliance control. Tailored for modern enterprise needs, it enhances performance and user experience.
+            </p>
+            
+            <ul class="project-points">
+                <li>Integrated <strong>Coverity SAST</strong> into CI/CD pipeline for continuous security scanning and auto-reporting of vulnerabilities.</li>
+                <li>Ported entire application stack from 32-bit to 64-bit architecture, updating legacy dependencies and modernizing third-party modules.</li>
+                <li>Led the full Bootstrap v3 to v5 migration, managing estimation, shim layering, and progressive compatibility testing.</li>
+            </ul>
+            
+            <div class="tech-stack mb-4">
+                <strong>Tech Stack:</strong> C/C++, Perl, HTML, CSS, JS, Coverity, Blackduck
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <a href="index.html#workexperience" class="btn btn-primary link-button">
+                <i class="bi bi-arrow-left"></i> Back to Work Experience
+            </a>
+        </div>
+    </section>
+    
+    <script>
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+            document.body.classList.remove('light-mode');
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+    
+</body>
+</html>
